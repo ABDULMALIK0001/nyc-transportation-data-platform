@@ -1,8 +1,10 @@
 # NYC Transportation Data Platform
 
-This project builds a monthly batch data pipeline for New York City Yellow Taxi
-trips. It combines trip records with Taxi Zone reference data and hourly weather,
-then produces tested analytical tables in PostgreSQL.
+**Project type:** Data Engineering | Batch Data Pipeline | ETL/ELT | Data Warehouse
+
+This project implements an end-to-end ETL/ELT batch data pipeline for New York
+City Yellow Taxi trips. It combines trip records with Taxi Zone reference data
+and hourly weather, then produces tested analytical tables in PostgreSQL.
 
 The project was built as a practical Data Engineering exercise. Its main focus
 is data ingestion, transformation, modeling, orchestration, data quality, and

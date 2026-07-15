@@ -1,0 +1,45 @@
+version: 2
+
+sources:
+  - name: warehouse
+    description: PostgreSQL star schema loaded from the Silver data layer.
+    schema: warehouse
+    tables:
+      - name: fact_trips
+        columns:
+          - name: trip_key
+            data_tests: [unique, not_null]
+          - name: record_id
+            data_tests: [unique, not_null]
+          - name: pickup_date_key
+            data_tests: [not_null]
+          - name: pickup_location_key
+            data_tests: [not_null]
+          - name: dropoff_location_key
+            data_tests: [not_null]
+          - name: weather_key
+            data_tests: [not_null]
+      - name: dim_location
+        columns:
+          - name: location_key
+            data_tests: [unique, not_null]
+          - name: location_id
+            data_tests: [unique, not_null]
+      - name: dim_date
+        columns:
+          - name: date_key
+            data_tests: [unique, not_null]
+          - name: full_date
+            data_tests: [unique, not_null]
+      - name: dim_weather
+        columns:
+          - name: weather_key
+            data_tests: [unique, not_null]
+          - name: weather_hour
+            data_tests: [unique, not_null]
+      - name: dim_payment_type
+        columns:
+          - name: payment_type_key
+            data_tests: [unique, not_null]
+          - name: payment_type_id
+            data_tests: [unique, not_null]

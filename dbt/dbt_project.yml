@@ -1,0 +1,15 @@
+name: nyc_transportation
+version: "1.0.0"
+config-version: 2
+
+profile: nyc_transportation
+
+model-paths: ["models"]
+test-paths: ["tests"]
+clean-targets: ["target", "dbt_packages", "logs"]
+
+models:
+  nyc_transportation:
+    gold:
+      +materialized: table
+      +tags: ["gold"]

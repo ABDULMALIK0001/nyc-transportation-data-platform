@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: daily_trip_summary
+    description: One analytical row per pickup date.
+    columns:
+      - name: trip_date
+        data_tests: [unique, not_null]
+      - name: trip_count
+        data_tests: [not_null]
+  - name: monthly_revenue_summary
+    description: Monthly trip and revenue metrics.
+    data_tests:
+      - unique:
+          column_name: "year || '-' || month"
+    columns:
+      - name: year
+        data_tests: [not_null]
+      - name: month
+        data_tests: [not_null]
+      - name: trip_count
+        data_tests: [not_null]
+  - name: zone_performance
+    description: Trip and revenue performance by pickup taxi zone.
+    data_tests:
+      - unique:
+          column_name: "pickup_borough || '-' || pickup_zone"
+    columns:
+      - name: pickup_borough
+        data_tests: [not_null]
+      - name: pickup_zone
+        data_tests: [not_null]
+      - name: trip_count
+        data_tests: [not_null]
+  - name: payment_type_summary
+    description: Usage and revenue split by payment type.
+    columns:
+      - name: payment_type
+        data_tests: [unique, not_null]
+      - name: trip_count
+        data_tests: [not_null]
+  - name: weather_trip_summary
+    description: Taxi metrics grouped into simple weather conditions.
+    columns:
+      - name: weather_condition
+        data_tests: [unique, not_null]
+      - name: trip_count
+        data_tests: [not_null]
